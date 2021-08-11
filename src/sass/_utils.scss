@@ -1,0 +1,64 @@
+@use "vars";
+@use 'sass:list';
+
+@mixin media($breakPoint) {
+  @media (min-width: map-get($map: vars.$breakPoints, $key: $breakPoint)) {
+    @content;
+  }
+}
+
+
+@mixin spacing(
+  $marginOrPadding,
+  $allside: 0,
+  $y: 0,
+  $x: 0,
+  $t: 0,
+  $r: 0,
+  $b: 0,
+  $e: 0
+) {
+  @if not($marginOrPadding == "m" or $marginOrPadding == "p") {
+    @error "either paddign or margin 'p' or 'm'";
+  }
+
+  $MP: (
+    m: "margin",
+    p: "padding",
+  );
+
+  $MorP: map-get(
+    $map: $MP,
+    $key: $marginOrPadding,
+  );
+
+  @debug $MorP;
+  @debug $allside;
+
+  @if $allside != 0 {
+    #{$MorP}: list.nth(vars.$spaces, $allside);
+  }
+
+  @if $x != 0 {
+    #{$MorP}-left: list.nth(vars.$spaces, $x);
+    #{$MorP}-right: list.nth(vars.$spaces, $x);
+  }
+  @if $y != 0 {
+    #{$MorP}-top: list.nth(vars.$spaces, $y);
+    #{$MorP}-bottom: list.nth(vars.$spaces, $y);
+  }
+
+  @if $t != 0 {
+    #{$MorP}-top: list.nth(vars.$spaces, $t);
+  }
+  @if $b != 0 {
+    #{$MorP}-top: list.nth(vars.$spaces, $b);
+  }
+
+  @if $e != 0 {
+    #{$MorP}-left: list.nth(vars.$spaces, $e);
+  }
+  @if $r != 0 {
+    #{$MorP}-top: list.nth(vars.$spaces, $r);
+  }
+}

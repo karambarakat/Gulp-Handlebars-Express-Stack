@@ -1,0 +1,101 @@
+@use "vars";
+@use "utils";
+@use 'sass:list';
+
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+// layouts
+.layout-main{
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto auto;
+
+  @include utils.media(lg){
+    grid-template-columns: 270px auto;
+    grid-template-rows: 100vh auto;
+
+  }
+  
+}
+
+aside{
+  min-width: 250px;
+  background-color: #4687e8;
+  color: var(--bs-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  nav{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    &>*{
+      padding: 0.5rem 0;
+    }
+  }
+
+  ul{
+    a{
+      color: rgba(255, 255, 255, 0.8);
+      &active{
+        color: rgba(0, 0, 0, 0.5);
+      }
+      &:hover{
+        color: rgba(0, 0, 0, 0.6);
+      }
+      &:focus{
+        color: rgba(0, 0, 0, 0.75);
+      }
+    }
+  }
+}
+
+main{
+  @include utils.spacing('m', $allside: 5);
+}
+
+.list-inline{
+  list-style: none;
+
+  li{
+    display: inline-block;
+    &:not(:last-child){
+      padding-right: 8px;
+    }
+
+    img{
+      width: 28px;
+      height: 28px;
+      transition: opacity 0.3s ease-in;
+      &:hover{
+        opacity: 0.8;
+      } 
+    }
+  }
+}
+.layout-sides{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+}
+.btn-collapse{
+  position: absolute;
+  // top: list.nth(vars.$spaces, 3);
+  left: calc(#{list.nth(vars.$spaces, 5)} - #{list.nth(vars.$spaces, 3)});
+}
+
+
