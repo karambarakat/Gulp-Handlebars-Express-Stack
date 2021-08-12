@@ -1,18 +1,31 @@
 @use 'utils';
 .card{
+  display: grid;
+  grid-template-areas: 'img'
+                        'content';
+  // grid-template-columns: auto;
+  @include utils.media(xl){
+    grid-template-areas: 'img content';
+    grid-template-columns: 50% 50%;
+  }
+  @include utils.media(xxl){
+    grid-template-areas: 'img content';
+    grid-template-columns: 30% 70%;
+  }
+  
   background-color: rgba(202, 202, 202, 0.433);
   .card-img{
     grid-area: img;
-    min-height: 200px;
+    margin: auto 0;
     @include utils.media(md){
-      min-height: 300px;
-    }
-    @include utils.media(lg){
-      // max-height: 500px;
+      margin: 0 0
     }
     overflow: hidden;
     img{
       margin: -20% auto;
+      @include utils.media(xl){
+        margin: auto auto
+      }
     }
   }
   .card-content{

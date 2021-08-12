@@ -32,9 +32,6 @@
     $key: $marginOrPadding,
   );
 
-  @debug $MorP;
-  @debug $allside;
-
   @if $allside != 0 {
     #{$MorP}: list.nth(vars.$spaces, $allside);
   }

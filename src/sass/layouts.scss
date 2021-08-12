@@ -112,7 +112,5 @@ body{
   @include utils.media(md){
     grid-template-columns: 1fr 1fr;
   }
-  @include utils.media(xl){
-    grid-template-columns:1fr 1fr 1fr;
-  }
+  
 }

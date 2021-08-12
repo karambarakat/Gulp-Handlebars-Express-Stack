@@ -117,11 +117,6 @@ body {
     grid-template-columns: 1fr 1fr;
   }
 }
-@media (min-width: 1200px) {
-  .layout-cards-projects {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
 
 body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -286,20 +281,39 @@ ul.lint-nav a {
 }
 
 .card {
+  display: grid;
+  grid-template-areas: "img" "content";
   background-color: rgba(202, 202, 202, 0.433);
+}
+@media (min-width: 1200px) {
+  .card {
+    grid-template-areas: "img content";
+    grid-template-columns: 50% 50%;
+  }
+}
+@media (min-width: 1440px) {
+  .card {
+    grid-template-areas: "img content";
+    grid-template-columns: 30% 70%;
+  }
 }
 .card .card-img {
   grid-area: img;
-  min-height: 200px;
+  margin: auto 0;
   overflow: hidden;
 }
 @media (min-width: 768px) {
   .card .card-img {
-    min-height: 300px;
+    margin: 0 0;
   }
 }
 .card .card-img img {
   margin: -20% auto;
+}
+@media (min-width: 1200px) {
+  .card .card-img img {
+    margin: auto auto;
+  }
 }
 .card .card-content {
   grid-area: content;
@@ -389,3 +403,5 @@ aside ul a:focus {
 .projects {
   padding: 3rem;
 }
+
+/*# sourceMappingURL=index.css.map */
