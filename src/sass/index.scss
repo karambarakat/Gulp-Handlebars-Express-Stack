@@ -8,7 +8,7 @@
 @use "btn";
 @use 'spacing';
 @use 'lists';
-
+@use 'card';
 
 
 *{
@@ -21,6 +21,10 @@ img{
   width: 100%;
 }
 
+h2.indent{
+  @include utils.spacing('p', $e: 2);
+  border-left: 10px solid vars.$primary;
+}
 
 aside{
   background-color: vars.$primary;
@@ -50,14 +54,25 @@ aside{
         color: rgba(0, 0, 0, 0.6);
       }
       &:focus{
+        
         color: rgba(0, 0, 0, 0.75);
       }
     }
   }
 }
 
-main{
-  @include utils.spacing('m', $allside: 5);
+
+.aboutme{
+  background-color: rgb(237, 237, 237);
+  @include utils.spacing('p', $allside: 5);
+}
+
+.skills{
+  @include utils.spacing('p', $allside: 5);
+}
+
+.projects{
+  @include utils.spacing('p', $allside: 5);
 }
 
 

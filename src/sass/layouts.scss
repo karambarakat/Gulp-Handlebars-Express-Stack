@@ -23,6 +23,22 @@
   }
 }
 
+main{
+  height: 100vh;
+  overflow: visible;
+  @include utils.media(lg){
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+}
+body{
+  overflow: scroll;
+  overflow-x: hidden;
+  @include utils.media(lg){
+    overflow: hidden;
+  }
+}
+
 .layout-sides{
   @extend .layout-f-ccc;
   height: 64px;
@@ -43,7 +59,7 @@
   grid-template-columns: auto;
 
   &>:first-child{
-    @include utils.spacing('m', $b:4)
+    @include utils.spacing('m', $b:4);
   }
 
   &>:last-child{
@@ -57,18 +73,46 @@
   }
 
   @include utils.media(lg){
-    grid-template-columns: auto 250px;
-
+    grid-template-columns: auto 290px;
+    &>:first-child{
+      @include utils.spacing('m', $r:4);
+    }
     &>:last-child{
-      width: 250px;
+      width: 290px;
     }
   }
 
   @include utils.media(xl){
-    grid-template-columns: auto 360px;
+    grid-template-columns: auto 400px;
 
     &>:last-child{
-      width: 360px;
+      width: 400px;
     }
+  }
+}
+
+.layout-skills {
+  display: grid;
+  grid-gap: 30px;
+  @include utils.spacing('m', $t:5);
+  grid-template-columns: 1fr 1fr;
+  @include utils.media(md){
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @include utils.media(lg){
+    grid-template-columns:1fr 1fr 1fr 1fr;
+  }
+}
+
+.layout-cards-projects {
+  display: grid;
+  grid-gap: 30px;
+  @include utils.spacing('m', $t:5, $b: 4);
+  grid-template-columns: 1fr;
+  @include utils.media(md){
+    grid-template-columns: 1fr 1fr;
+  }
+  @include utils.media(xl){
+    grid-template-columns:1fr 1fr 1fr;
   }
 }

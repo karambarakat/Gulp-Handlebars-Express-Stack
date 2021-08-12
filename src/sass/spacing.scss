@@ -7,3 +7,7 @@
 .s-btn-2{
   @include utils.spacing('p', $x:2);
 }
+
+.s-auto{
+  margin: auto;
+}

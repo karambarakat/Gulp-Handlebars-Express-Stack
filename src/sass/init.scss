@@ -3,7 +3,11 @@ hr{
   height: 1px;
   width: 100%;
   border-radius: 1px;
-  @include utils.spacing('m', 2);
+  @include utils.spacing('m', $y:4);
   border: none;
-  background-color: rgba(240, 255, 255, 0.459);
+  background-color: rgba(58, 58, 58, 0.459);
+  &.inverse{
+    @include utils.spacing('m', $y:2);
+    background-color: rgba(228, 228, 228, 0.459);
+  }
 }
