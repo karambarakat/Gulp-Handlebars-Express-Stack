@@ -1,0 +1,74 @@
+@use "vars";
+@use "utils";
+@use 'sass:list';
+
+
+.layout-f-ccc{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// layouts
+.layout-main{
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto auto;
+
+  @include utils.media(lg){
+    grid-template-columns: 270px auto;
+    grid-template-rows: 100vh auto;
+    
+  }
+}
+
+.layout-sides{
+  @extend .layout-f-ccc;
+  height: 64px;
+  width: 100%;
+  position: relative;
+
+  .layout-sides-left{
+    position: absolute;
+    left: calc(#{list.nth(vars.$spaces, 5)} - #{list.nth(vars.$spaces, 3)});
+    @include utils.media(lg){
+      display: none;
+    }
+  }
+}
+
+.layout-hero {
+  display: grid;
+  grid-template-columns: auto;
+
+  &>:first-child{
+    @include utils.spacing('m', $b:4)
+  }
+
+  &>:last-child{
+    width: 100%;
+  }
+
+  @include utils.media(md){
+    &>:last-child{
+      width: 360px;
+    }
+  }
+
+  @include utils.media(lg){
+    grid-template-columns: auto 250px;
+
+    &>:last-child{
+      width: 250px;
+    }
+  }
+
+  @include utils.media(xl){
+    grid-template-columns: auto 360px;
+
+    &>:last-child{
+      width: 360px;
+    }
+  }
+}

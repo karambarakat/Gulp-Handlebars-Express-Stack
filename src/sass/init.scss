@@ -1,0 +1,9 @@
+@use "utils";
+hr{
+  height: 1px;
+  width: 100%;
+  border-radius: 1px;
+  @include utils.spacing('m', 2);
+  border: none;
+  background-color: rgba(240, 255, 255, 0.459);
+}

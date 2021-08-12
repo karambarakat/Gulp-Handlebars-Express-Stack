@@ -52,13 +52,14 @@
     #{$MorP}-top: list.nth(vars.$spaces, $t);
   }
   @if $b != 0 {
-    #{$MorP}-top: list.nth(vars.$spaces, $b);
+    #{$MorP}-bottom: list.nth(vars.$spaces, $b);
+    
   }
 
   @if $e != 0 {
     #{$MorP}-left: list.nth(vars.$spaces, $e);
   }
   @if $r != 0 {
-    #{$MorP}-top: list.nth(vars.$spaces, $r);
+    #{$MorP}-right: list.nth(vars.$spaces, $r);
   }
 }

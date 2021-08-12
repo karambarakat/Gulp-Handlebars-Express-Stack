@@ -2,6 +2,12 @@
 @use "utils";
 @use 'sass:list';
 
+@use 'layouts';
+@use 'typo';
+@use 'init';
+@use "btn";
+@use 'spacing';
+@use 'lists';
 
 
 
@@ -11,43 +17,32 @@
   box-sizing: border-box;
 }
 
-
-
-// layouts
-.layout-main{
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: auto auto;
-
-  @include utils.media(lg){
-    grid-template-columns: 270px auto;
-    grid-template-rows: 100vh auto;
-
-  }
-  
+img{
+  width: 100%;
 }
 
-aside{
-  min-width: 250px;
-  background-color: #4687e8;
-  color: var(--bs-light);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
-  nav{
-    display: flex;
-    flex-direction: column;
+aside{
+  background-color: vars.$primary;
+  color: rgba(255, 255, 255, 0.9);
+  h2{
+    color: rgba(255, 255, 255, 0.9);
+  }
+  p{
+    color: rgba(255, 255, 255, 0.9);
+  }
+  justify-content: flex-start !important;
+  @include utils.spacing('p', $allside: 2);
+  nav{ 
     text-align: center;
-    align-items: center;
+    @include utils.spacing('p', $y: 4);
     &>*{
-      padding: 0.5rem 0;
+      @include utils.spacing('m', $y: 2);
     }
   }
-
   ul{
     a{
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.9);
       &active{
         color: rgba(0, 0, 0, 0.5);
       }
@@ -65,37 +60,7 @@ main{
   @include utils.spacing('m', $allside: 5);
 }
 
-.list-inline{
-  list-style: none;
 
-  li{
-    display: inline-block;
-    &:not(:last-child){
-      padding-right: 8px;
-    }
 
-    img{
-      width: 28px;
-      height: 28px;
-      transition: opacity 0.3s ease-in;
-      &:hover{
-        opacity: 0.8;
-      } 
-    }
-  }
-}
-.layout-sides{
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-
-}
-.btn-collapse{
-  position: absolute;
-  // top: list.nth(vars.$spaces, 3);
-  left: calc(#{list.nth(vars.$spaces, 5)} - #{list.nth(vars.$spaces, 3)});
-}
 
 

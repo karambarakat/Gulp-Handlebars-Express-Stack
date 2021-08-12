@@ -1,0 +1,9 @@
+@use "utils";
+
+.s-btn-1{
+  @include utils.spacing('m', $r:2);
+}
+
+.s-btn-2{
+  @include utils.spacing('p', $x:2);
+}

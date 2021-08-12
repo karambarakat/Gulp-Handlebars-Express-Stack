@@ -1,0 +1,41 @@
+@use "vars";
+@use "utils";
+@use 'sass:list';
+
+@mixin btn($color, $title) {
+  .btn {
+    @include utils.spacing("p", 2);
+    
+    border-radius: 0.25rem;
+
+    font-size: 1.1rem;
+    font-weight: 400;
+
+    &.btn-#{$title} {
+      background-color: $color;
+      color: white;
+      border: 2px solid $color;
+      &:hover {
+        background-color: darken($color, 8%);
+      }
+      &:active {
+        background-color: darken($color, 12%);
+      }
+      &:focus {
+        background-color: darken($color, 15%);
+        border: 2px solid darken($color, 15%);
+        box-shadow: 0 0 0 0.25rem rgba($color, 25%);
+      }
+    }
+  }
+}
+
+@include btn(vars.$primary, primary);
+@include btn(vars.$secondary, secondary);
+
+.btn{
+  @extend .btn-primary;
+}
+button{
+  @extend .btn;
+}
