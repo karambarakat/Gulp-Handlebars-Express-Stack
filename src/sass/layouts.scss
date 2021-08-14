@@ -16,6 +16,8 @@
   grid-template-columns: 100%;
   grid-template-rows: auto auto;
 
+  
+
   @include utils.media(lg){
     grid-template-columns: 270px auto;
     grid-template-rows: 100vh auto;
@@ -26,6 +28,11 @@
 main{
   height: 100vh;
   overflow: visible;
+
+  &>section{
+    @include utils.spacing('p', $allside: 5);
+  }
+  
   @include utils.media(lg){
     overflow: scroll;
     overflow-x: hidden;

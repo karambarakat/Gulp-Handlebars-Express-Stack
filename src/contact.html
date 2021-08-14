@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="./styles/bootstrap.css" /> -->
+    <link rel="stylesheet" href="./css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+    <title>portfolio - Barakat</title>
+  </head>
+  <body>
+    <div class="layout-main">
+      <aside class="sidebar layout-f-ccc">
+        <header class="layout-sides">
+          <button
+            onclick="document.querySelector('#main-nav').classList.toggle('hidden')"
+            class="btn btn-secondary btn-collapse layout-sides-left s-btn-2"
+          >
+            <i class="bi bi-list"></i>
+          </button>
+          <h2>Karam Barakat</h2>
+        </header>
+        <nav id="main-nav" class="layout-f-ccc">
+          <img
+            style="width: 160px"
+            src="./img/profile.png"
+            alt="profile picture"
+          />
+          <p>
+            Hi my name is Karam Barakat and I'm a javascript developer. Welcome
+            to my portfolio
+          </p>
+          <ul class="social list-inline">
+            <li>
+              <a href="#">
+                <img src="./img/socialMedia/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./img/socialMedia/linkedIn.svg" alt="linkedIn" />
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./img/socialMedia/github.svg" alt="github" />
+              </a>
+            </li>
+          </ul>
+          <hr class="inverse" />
+
+          <ul class="lint-nav">
+            <li class="active">
+              <a class="h5" href="/">
+                <i class="bi bi-person-fill"></i>
+                About Me
+              </a>
+            </li>
+            <li>
+              <a class="h5" href="/portfolio.html"
+                ><i class="bi bi-grid-1x2-fill"></i>
+                Portfolio
+              </a>
+            </li>
+            <li>
+              <a class="h5" href="/resume.html"
+                ><i class="bi bi-file-earmark-arrow-down-fill"></i>
+                Resume
+              </a>
+            </li>
+            <li>
+              <a class="h5" href="/contact.html">
+                <i class="bi bi-person-lines-fill"></i>
+                Contact
+              </a>
+            </li>
+          </ul>
+
+          <button class="btn btn-secondary">Hire Me</button>
+        </nav>
+      </aside>
+
+      <main>
+        <section class="bg-gray layout-f-ccc">
+          <h1><storg>Contact</storg></h1>
+          <p class="text-center">
+            you can get in touch throgh my email
+            <a class="a"href="#">karam.99n@gmail.com</a>
+            Wanna to hire me? check my freelancing profile or my linked in
+            <ul class="social list-inline">
+              <li>
+                <a href="#">
+                  <img src="./img/socialMedia/twitter.svg" alt="twitter" />
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="./img/socialMedia/linkedIn.svg" alt="linkedIn" />
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="./img/socialMedia/github.svg" alt="github" />
+                </a>
+              </li>
+            </ul>
+          </p>
+          <button class="btn s-btn-1">Hire Me</button>
+        </section>
+<section class="form">
+  <h2><storg>Get In Touch</storg></h2>
+  <form>
+    <div class="input-group">
+      <input type="text" name="name" id="name" placeholder="Name">
+      <input type="email" name="email" id="email" placeholder="Email">
+    </div>
+    <textarea name="message" id="message" cols="30" rows="10" placeholder="Enter you message"></textarea>
+    <button>Send Now</button>
+  </form>
+</section>
+        <hr />
+        <footer class="footer layout-f-ccc">
+          <p>Copyright © <a class="a"href="github.com/karambarakat">Karam Barakat</a></p>
+        </footer>
+      </main>
+    </div>
+    <script src="./js/index.js"></script>
+  </body>
+</html>

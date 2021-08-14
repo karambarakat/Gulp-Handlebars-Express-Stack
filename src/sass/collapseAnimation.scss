@@ -1,0 +1,19 @@
+@use "utils";
+
+
+//collapse animation
+.collapseAnimation {
+  
+  height: 600px;
+  overflow: hidden;
+  &.hidden {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    @include utils.media('lg'){
+      height: 600px;
+    }
+  }
+  transition: all 0.5s ease-in-out;
+}
+//collapse animation

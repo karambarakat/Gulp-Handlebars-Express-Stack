@@ -1,11 +1,11 @@
 {
-  "name": "karam-portofolio",
+  "name": "karam-portfolio",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev:sass": "nodemon -e .scss --exec sass --no-source-map src/sass/index.scss src/css/index.css",
-    "dev": "concurrently \"npx live-server src\"  \"npm run dev:sass\"",
+    "dev": "concurrently -n ls,sass \"npx live-server src\"  \"npm run dev:sass\"",
     "build": "npx gulp build",
     "build:css": "npx gulp css",
     "start": "node index.js"

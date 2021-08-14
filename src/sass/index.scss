@@ -1,7 +1,6 @@
 @use "vars";
 @use "utils";
 @use 'sass:list';
-
 @use 'layouts';
 @use 'typo';
 @use 'init';
@@ -9,6 +8,9 @@
 @use 'spacing';
 @use 'lists';
 @use 'card';
+@use 'collapseAnimation';
+@use "resume";
+@use 'form';
 
 
 *{
@@ -62,18 +64,15 @@ aside{
 }
 
 
-.aboutme{
+.bg-gray{
   background-color: rgb(237, 237, 237);
   @include utils.spacing('p', $allside: 5);
 }
 
-.skills{
-  @include utils.spacing('p', $allside: 5);
+.hero-min-width{
+  min-height: 25rem;
 }
 
-.projects{
-  @include utils.spacing('p', $allside: 5);
-}
 
 
 

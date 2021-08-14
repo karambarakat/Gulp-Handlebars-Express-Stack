@@ -1,0 +1,49 @@
+@use 'utils';
+@use 'vars';
+@use 'sass:color';
+section.form {
+  margin: auto;
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & > form {
+    width: 100%;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  & > * {
+    width: 100%;
+    @include utils.spacing("m", $b: 3);
+  }
+  .input-group {
+    display: flex;
+    :first-child {
+      @include utils.spacing("m", $r: 3);
+    }
+    & > * {
+      width: 12rem - 0.5rem;
+    }
+  }
+}
+
+input,
+textarea {
+  border: 1px solid rgba(0, 0, 0, 0.275);
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  &:focus{
+    color: rgba(0, 0, 0, 0.7);
+    border-color: color.adjust(vars.$primary, $alpha: -0.3);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem color.adjust(vars.$primary, $alpha: -0.7);
+  }
+  
+  @include utils.spacing("p", $allside: 2);
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
