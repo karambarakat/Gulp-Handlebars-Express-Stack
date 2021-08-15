@@ -24,7 +24,7 @@
           </button>
           <h2>Karam Barakat</h2>
         </header>
-        <nav id="main-nav" class="layout-f-ccc">
+        <nav id="main-nav" class="layout-f-ccc collapseAnimation">
           <img
             style="width: 160px"
             src="./img/profile.png"
@@ -79,102 +79,66 @@
               </a>
             </li>
           </ul>
-
-          <button class="btn btn-secondary">Hire Me</button>
         </nav>
       </aside>
 
       <main style="position: relative">
         <section class="bg-gray hero-min-width">
-          <button class="btn right">Downlaod PDF</button>
-        </section>
-
-        <article class="resume resume-wrapper">
-          <!-- <h2 class="indent">What I do</h2>
-          <p>
-            I have more a 1 year experience building websites and web app. Below
-            is a quick overview of my main technical skill sets and technologies
-            I use. Want to find out more about my experience? Check out my
-            <a class="a"href="#">online resume</a> and <a class="a"href="#">project portfolio</a>.
-          </p>
-          <div class="layout-skills">
-            <div>
-              <div class="logs"></div>
-              <h6>Vanilla JavaScript</h6>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolor,Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolor, culpa?
-              </p>
-            </div>
-            <div>
-              <div class="logs"></div>
-              <h6>Vanilla JavaScript</h6>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolor,Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolor, culpa?
-              </p>
-            </div>
-            <div>
-              <div class="logs"></div>
-              <h6>Vanilla JavaScript</h6>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolor,Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolor, culpa?
-              </p>
-            </div>
-            <div>
-              <div class="logs"></div>
-              <h6>Vanilla JavaScript</h6>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolor,Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolor, culpa?
-              </p>
-            </div>
-            <div>
-              <div class="logs"></div>
-              <h6>Vanilla JavaScript</h6>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolor,Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolor, culpa?
-              </p>
-            </div>
-            <div>
-              <div class="logs"></div>
-              <h6>Vanilla JavaScript</h6>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolor,Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolor, culpa?
-              </p>
-            </div>
-            <div>
-              <div class="logs"></div>
-              <h6>Vanilla JavaScript</h6>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolor,Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolor, culpa?
-              </p>
-            </div>
-            <div>
-              <div class="logs"></div>
-              <h6>Vanilla JavaScript</h6>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolor,Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolor, culpa?
-              </p>
-            </div>
+          <div class="print">
+            <button class="btn right" onclick="window.frames[0].print()">
+              Downlaod PDF
+            </button>
           </div>
-          <div class="layout-sides">
-            <button class="btn s-auto">View Services</button>
-          </div> -->
-        </article>
+        </section>
+        <div class="transformOnResize" style="transform-origin: top left">
+          <article class="resume resume-wrapper">
+            <embed
+              src="./pdf.html"
+              type="text/html"
+              style="width: 100%; height: 1254.39px"
+            />
+          </article>
+        </div>
+        <script>
+          const transformOR = document.querySelector(".transformOnResize");
+          const when1244 = 0.96;
+          const when992 = (647 - 15) / 900;
+          // when1244
+          // width 900
+          // outer 958 (958-900 = 58 > margin is 29px eachside)
+          // when922
+          // therefore widht have to 647
+          // outer 705
+          // to acheve this scal has to be 0.8477777777777777777 (900/763)
+          //15 is correction for some reason ther is some error
+
+          const when992_ = 0.975;
+          const when800 = 0.775;
+          const c = {
+            m: -(when992 - when1244) / (1244 - 1000),
+            b: -(1244 * (when992 - when1244)) / (1244 - 1000) - when1244,
+          };
+          const c2 = {
+            m: -(when800 - when992_) / (992 - 800),
+            b: -(992 * (when800 - when992_)) / (992 - 800) - when992_,
+          };
+          let width = window.innerWidth;
+          const onscale = () => {
+            width = window.innerWidth;
+            if (width > 1244) {
+              transformOR.style.transform = "";
+              transformOR.style.width = "";
+            } else if (width <= 1244 && width > 992) {
+              transformOR.style.transform = `scale(${width * c.m - c.b})`;
+              transformOR.style.width = "";
+            } else if (width <= 992) {
+              transformOR.style.transform = `scale(${width * c2.m - c2.b})`;
+              transformOR.style.width = "86vw";
+            }
+          };
+          window.addEventListener("resize", onscale);
+          onscale();
+        </script>
 
         <hr />
         <footer class="footer layout-f-ccc">

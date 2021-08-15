@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @media print {
+  body {
+    background-color: white;
+  }
+  .contianer {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    border: 0 solid rgba(0, 0, 0, 0);
+    position: absolute;
+    right: 0;
+    top: 0;
+    /* width: 100vw; */
+    margin: 0;
+  }
+
+  @page {
+    margin: 0;
+  }
+}
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  font-size: 16pt;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: rgb(255, 255, 255);
+  overflow: hidden;
+  min-height: 100rem;
+}
+
+.pdf {
+  position: relative;
+  font-size: 1.2rem;
+}
+
+.layout-main-grid {
+  display: grid;
+  grid-template-columns: 300px auto;
+  align-items: flex-start;
+}
+.layout-main-grid > * {
+  padding: 1em;
+  z-index: 5;
+}
+
+.layout-2div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.layout-section {
+  display: grid;
+  gap: 0.6em;
+  grid-template-columns: repeat(8, 1fr);
+}
+.layout-section > * {
+  grid-column-end: span 8;
+}
+.layout-section > div:first-of-type {
+  margin-top: -0.6em;
+}
+
+.cspan2 {
+  grid-column-end: span 2;
+}
+.cspan4 {
+  grid-column-end: span 4;
+}
+.cspan6 {
+  grid-column-end: span 6;
+}
+
+aside {
+  background-color: rgb(233, 233, 233);
+  width: 300px;
+  border-bottom-right-radius: 1em;
+  z-index: 2;
+  padding-top: 5em !important;
+  padding-bottom: 5em !important;
+}
+
+main section {
+  margin-top: 1.5em;
+}
+h1 {
+  color: rgb(37, 160, 209);
+  font-size: 1.2em;
+  font-weight: 400;
+}
+h2 {
+  font-size: 0.7em;
+  font-weight: 700;
+}
+h3 {
+  color: rgb(37, 160, 209);
+  font-size: 0.7em;
+  font-weight: 300;
+}
+p.body,
+li {
+  color: rgb(128, 128, 128);
+  font-size: 0.7em;
+  font-weight: 300;
+}
+li {
+  list-style: none;
+}
+li::before {
+  content: "•";
+}
+  </style>
+    <!-- <link rel="stylesheet" href="resume.css" /> -->
+  <title>resume pdf</title>
+</head>
+<body>
+  <div class="pdf layout-main-grid">
+    <aside>
+      <h1>Karam N. M. Barakat</h1>
+      <p class="subtitle">JavaScript developer</p>
+      <p class="info-adress"><i></i>AlHamra, Riyadh, Saudi Arabia</p>
+      <p class="info-phone"><i></i>0592038024</p>
+      <p class="info-email"><i></i>karam.99n@gmail.com</p>
+      <div class="info-language">English and Arabic</div>
+      <p class="body"></p>
+    </aside>
+    <main>
+    <section class="layout-section">
+      <h1>Education:</h1>
+      <div>
+        <h2>Bachlor of Computer Science.</h2>
+        <h3>University of Putra Malaysia</h3>
+        <p class="body">
+          Third year with CGPA 3.42 | Dean Award for 2019-Sem2
+        </p>
+      </div>
+      <div class="cspan4">
+        <h2>Foundation Year</h2>
+        <h3>Prince Satam University</h3>
+        <p class="body">Before moving to Malaysia</p>
+      </div>
+      <div class="cspan4">
+        <h2>High School</h2>
+        <h3>Al juwaine high school, Saudi Arabia</h3>
+        <p class="body">Graduated with Honors | CGPA 98.7%.</p>
+      </div>
+      
+    </section>
+    <section class="layout-section">
+      <h1>Experience:</h1>
+      <div>
+        <h2>Freelancing</h2>
+        <h3>Upwork and freelancer | Web development | Dec 2020 - Present </h3>
+        <p class="body">
+          <ul>
+            <li>Practiced my knowledge in software development.</li>
+            <li>Developed nogotiation skills.</li>
+            <li>Improved self-dicipline and organization skills.</li>
+          </ul>
+        </p>
+      </div>
+    </section>
+    <section class="layout-section">
+      <h1>Project:</h1>
+      <div>
+        <h2>Intergrated Design Project</h2>
+        <h3>Arduino Solar Tracker</h3>
+        <div class="layout-2div">
+          <p class="body">Built and Programmed Arduino
+            Robot</p>
+          <p class="body">Reinforced my knowledge with
+            microprocessors and electronic.
+            </p>
+        </div>
+      </div>
+    </section>
+    <section class="layout-section">
+      <h1>Skills:</h1>
+      <div>
+        <h2>Intergrated Design Project</h2>
+        <div class="layout-2div">
+          <p class="body">Built and Programmed Arduino
+            Robot</p>
+            <p class="body">Reinforced my knowledge with
+              microprocessors and electronic.
+            </p>
+          </div>
+      </div>
+    </section>
+    <section class="layout-section">
+      <h1>Extra-Curruclum:</h1>
+      <div>
+        <h2>International Engineering Student Night (IESN)</h2>
+        <h3>Head of Publicity | May 2019 – Sept 2019</h3>
+        <p class="body">
+          <li>Supervised 5 members publicity team.</li>
+          <li>Arranged advertisment plan for communication event</li>
+        </p>
+      </div>
+    </section>
+    </main>
+  </div>
+</body>
+</html>
+
+ 

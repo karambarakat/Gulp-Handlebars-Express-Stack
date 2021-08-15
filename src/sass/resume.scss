@@ -3,18 +3,32 @@
 @use 'sass:list';
 
 .resume {
-  @include utils.spacing('p', $allside: 5);
+  // @include utils.spacing('p', $allside: 5);
   background-color: white;
   width: 2480px;
   min-height: 3508px;
 }
 
 .resume-wrapper {
-  width: calc(100% - #{list.nth(vars.$spaces, 5) * 2});
-  @include utils.spacing('m',$e:5, $b:5);
+  width: 900px;
+  margin: auto;
   min-height: 0;
   margin-top: -18rem;
   overflow: hidden;
   box-shadow: 0px 26px 40px 16px rgba(0, 0, 0, 0.12);;
   border-radius: 5px;
+
+}
+.print {
+  width: 900px;
+  margin: auto;
+}
+@media (max-width: 1244px){
+  .resume-wrapper{
+    @include utils.spacing('m', $r: 5, $e: 5)
+  }
+  .print {
+    width: 100%;
+    // @include utils.spacing('p', $r: 5, $e: 5)
+  }
 }

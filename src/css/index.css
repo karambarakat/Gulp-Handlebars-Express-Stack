@@ -380,7 +380,7 @@ ul.lint-nav a {
 .collapseAnimation {
   height: 600px;
   overflow: hidden;
-  transition: all 0.5s ease-in-out;
+  transition: height 0.5s ease-in-out;
 }
 .collapseAnimation.hidden {
   height: 0;
@@ -394,16 +394,14 @@ ul.lint-nav a {
 }
 
 .resume {
-  padding: 3rem;
   background-color: white;
   width: 2480px;
   min-height: 3508px;
 }
 
 .resume-wrapper {
-  width: calc(100% - 6rem);
-  margin-bottom: 3rem;
-  margin-left: 3rem;
+  width: 900px;
+  margin: auto;
   min-height: 0;
   margin-top: -18rem;
   overflow: hidden;
@@ -411,6 +409,21 @@ ul.lint-nav a {
   border-radius: 5px;
 }
 
+.print {
+  width: 900px;
+  margin: auto;
+}
+
+@media (max-width: 1244px) {
+  .resume-wrapper {
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+
+  .print {
+    width: 100%;
+  }
+}
 section.form {
   margin: auto;
   width: 30rem;
