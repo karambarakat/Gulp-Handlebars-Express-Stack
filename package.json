@@ -14,7 +14,9 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
+    "express-handlebars": "^5.3.3",
     "gulp": "^4.0.2",
+    "gulp-compile-handlebars": "^0.6.1",
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^8.0.0",
     "gulp-rename": "^2.0.0",

@@ -1,6 +1,6 @@
 @use "utils";
 @use "vars";
-
+@use "sass:color";
 hr{
   height: 1px;
   width: 100%;
@@ -35,6 +35,9 @@ a.a{
     transform:  skew(325deg);
     background-color: rgba(145, 255, 0, 0.192);
 
+  }
+  &:hover {
+    color: darken(vars.$primary, 60%)
   }
 }
 

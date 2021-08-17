@@ -1,6 +1,7 @@
 @use "vars";
 @use "utils";
 @use 'sass:list';
+@use 'sass:color';
 
 @mixin btn($color, $title) {
   .btn {
@@ -10,6 +11,8 @@
 
     font-size: 1.1rem;
     font-weight: 400;
+
+    
 
     &.btn-#{$title} {
       background-color: $color;
@@ -25,6 +28,16 @@
         background-color: darken($color, 15%);
         border: 2px solid darken($color, 15%);
         box-shadow: 0 0 0 0.25rem rgba($color, 25%);
+      }
+      &.btn-outline {
+        background-color: transparent;
+        color: $color;
+        &:hover{
+          @debug color.adjust($color,  $alpha: -0.4);
+          background-color: color.adjust($color, $alpha: -0.9); 
+          color: color.adjust($color, $blackness: 10%)
+          
+        }
       }
     }
   }

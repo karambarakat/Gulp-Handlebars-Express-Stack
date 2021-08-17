@@ -109,6 +109,16 @@ body{
   @include utils.media(lg){
     grid-template-columns:1fr 1fr 1fr 1fr;
   }
+  p{
+    margin-bottom: 0;
+  }
+  li{
+    list-style: none;
+    &::before{
+      content: '•';
+      color: rgb(67, 67, 67);
+    }
+  }
 }
 
 .layout-cards-projects {

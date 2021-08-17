@@ -22,7 +22,7 @@
     }
     overflow: hidden;
     img{
-      margin: -20% auto;
+      margin-bottom: -20%;
       @include utils.media(xl){
         margin: auto auto
       }

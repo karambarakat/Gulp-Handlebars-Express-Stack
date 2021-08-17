@@ -39,3 +39,13 @@ ul.lint-nav{
     text-decoration: none;
   }
 }
+
+.logs{
+  display: flex;
+  flex-direction: row;
+  &>*{
+    height: 1.7rem;
+    width: auto;
+    margin-right: 0.3rem;
+  }
+}
