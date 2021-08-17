@@ -36,3 +36,15 @@ const onscale = () => {
 };
 window.addEventListener("resize", onscale);
 onscale();
+
+window.addEventListener("load", () => {
+  const embed = document.querySelector("embed");
+  embed.style.height = `${
+    window.frames[0].document.querySelector(".pdf").offsetHeight + 100
+  }px`;
+  console.log("hello");
+  console.log();
+  window.frames[0].addEventListener("load", () => {
+    console.log(window.frames[0].document.querySelector(".pdf").offsetHeight);
+  });
+});
