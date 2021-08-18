@@ -6,6 +6,7 @@ const when992 = (647 - 15) / 900;
 // outer 958 (958-900 = 58 > margin is 29px eachside)
 // when922
 // therefore widht have to 647
+
 // outer 705
 // to acheve this scal has to be 0.8477777777777777777 (900/763)
 //15 is correction for some reason ther is some error

@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:sass": "nodemon -e .scss --exec sass --no-source-map src/sass/index.scss src/css/index.css",
-    "dev": "concurrently -n ls,sass \"npx live-server src\"  \"npm run dev:sass\"",
-    "build": "npx gulp build",
-    "build:css": "npx gulp css",
+    "dev:nodemon": "nodemon -w ./src -w index.js -e \"*\"",
+    "dev:watch": "concurrently -n W,N \"gulp watch\" \"npm run dev:nodemon\"",
+    "dev": "gulp build && npm run dev:watch",
+    "build": "npm install --only=dev && npx gulp buildForProduction",
     "start": "node index.js"
   },
   "author": "",
@@ -16,16 +16,16 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.3.3",
     "gulp": "^4.0.2",
-    "gulp-compile-handlebars": "^0.6.1",
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^8.0.0",
-    "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.0.0",
     "gulp-uglify": "^3.0.2",
     "sass": "^1.37.5"
   },
   "devDependencies": {
     "concurrently": "^6.2.1",
+    "gulp-compile-handlebars": "^0.6.1",
+    "gulp-rename": "^2.0.0",
     "live-server": "^1.2.1",
     "nodemon": "^2.0.12"
   }

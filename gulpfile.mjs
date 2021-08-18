@@ -4,28 +4,33 @@ import uglify from "gulp-uglify";
 import minify from "gulp-htmlmin";
 import sass from "sass";
 import gSass from "gulp-sass";
+import handlebars from "gulp-compile-handlebars";
+import rename from "gulp-rename";
+
 const pipSass = gSass(sass);
-// Logs Message
 
-// Copy All Files
-const copyHtml = () =>
+const copyHandlebars = () =>
   gulp
-    .src("src/*.html")
-    .pipe(minify({ collapseWhitespace: true, removeComments: true }))
-    .pipe(gulp.dest("dist"));
-
-const copySvg = () =>
-  gulp
-    .src("src/**/*.svg")
-    .pipe(minify({ collapseWhitespace: true }))
-    .pipe(gulp.dest("dist"));
-
-const copyJs = () =>
-  gulp.src("src/js/*.js").pipe(uglify()).pipe(gulp.dest("dist/js"));
-
-// Optimize Images
-const imageMin = () =>
-  gulp.src("src/img/*").pipe(imagemin()).pipe(gulp.dest("dist/img"));
+    .src(
+      ["404", "index", "contact", "portfolio", "resume", "pdf"].map(
+        (file) => `./src/handlebars/${file}.handlebars`
+      )
+    )
+    .pipe(
+      handlebars(
+        {},
+        {
+          ignorePartials: true,
+          batch: ["./src/handlebars/partials"],
+        }
+      )
+    )
+    .pipe(
+      rename((path) => {
+        path.extname = ".html";
+      })
+    )
+    .pipe(gulp.dest("dist/html"));
 
 // Compile Sass
 const compileSass = () =>
@@ -33,25 +38,42 @@ const compileSass = () =>
     .src("src/sass/index.scss")
     //todo have to log the error right
     .pipe(pipSass())
-    .pipe(minify({ collapseWhitespace: true, removeComments: true }))
     .pipe(gulp.dest("dist/css"));
 
-export const build = gulp.parallel(
-  compileSass,
+//move the rest of file from src to dist
+const move = () =>
+  gulp
+    .src(
+      ["svg", "webp", "gif", "jpg", "png", "js"].map((ext) => `src/**/*.${ext}`)
+    )
+    .pipe(gulp.dest("dist"));
+
+// Optimize html and css
+const minifyDist = () =>
+  gulp
+    .src(["html", "svg", "css"].map((ext) => "./dist/**/*." + ext))
+    .pipe(minify({ collapseWhitespace: true, removeComments: true }))
+    .pipe(gulp.dest("dist"));
+
+// Optimize Images
+const imageMin = () =>
+  gulp
+    .src(["webp", "gif", "jpg", "png"].map((ext) => "./dist/img/**/*." + ext))
+    .pipe(imagemin())
+    .pipe(gulp.dest("dist/img"));
+
+// export tasks
+export const build = gulp.series(copyHandlebars, compileSass, move);
+
+export const buildForProduction = gulp.series(
+  build,
+  minifyDist,
   imageMin,
-  copyHtml,
-  copySvg,
-  copyJs
+  move
 );
 
-export const css = compileSass;
-
-console.log("hello");
-export const dev = () =>
-  gulp.watch("src/sass/*.scss", (cd) => {
-    console.log("hello");
-    cd();
-    return gulp.series(
-      gulp.src("src/sass/index.scss").pipe(pipSass()).pipe(gulp.dest("src/css"))
-    );
-  });
+export const watch = gulp.series(function () {
+  gulp.watch("./src/**/*.scss", compileSass);
+  gulp.watch("./src/**/*.handlebars", copyHandlebars);
+  gulp.watch("./src/**/*.!(handlebars|scss)", move);
+});

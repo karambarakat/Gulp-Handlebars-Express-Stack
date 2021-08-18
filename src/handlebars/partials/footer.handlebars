@@ -1,0 +1,19 @@
+      
+        <footer class="footer layout-f-ccc">
+          <p>Source code <a class="a" href="https://github.com/karambarakat/karambarakat.github.io">on Github</a></p>
+        </footer>
+      </main>
+    </div>
+    <script>
+      const collapse = document.querySelector(".collapseAnimation");
+      window.addEventListener("resize", () => {
+        //todo: quick solution but not efficient
+        let width = window.innerWidth;
+        if (width <= 992) {
+          collapse.classList.add("hidden");
+        }
+      });
+    </script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
