@@ -6,7 +6,8 @@ Here I put all my small html items + I build CV-like portfolio website using Gul
 
 For this project I used:
 - HandleBars: template engine to avoid html repetition, add some components.
-- Gulp: for building Handlebars
+- Sass
+- Gulp: for building Handlebars and Sass
 - ExpressJs
 
 ## Getting Started
