@@ -1,12 +1,3 @@
-[submodule "portfolio/portfolio/LandingPage_Present"]
-	path = portfolio/portfolio/LandingPage_Present
-	url = https://github.com/karambarakat/LandingPage_Present.git
-[submodule "portfolio/portfolio/LandingPage_FirmLanding"]
-	path = portfolio/portfolio/LandingPage_FirmLanding
-	url = https://github.com/karambarakat/LandingPage_FirmLanding.git
-[submodule "portfolio/portfolio/LandingPage_Welcome"]
-	path = portfolio/portfolio/LandingPage_Welcome
-	url = https://github.com/karambarakat/LandingPage_Welcome.git
-[submodule "portfolio/portfolio/LandingPage_myBook"]
-	path = portfolio/portfolio/LandingPage_myBook
-	url = https://github.com/karambarakat/LandingPage_myBook.git
+[submodule "portfolio"]
+	path = portfolio/
+	url = https://github.com/karambarakat/html-pages
